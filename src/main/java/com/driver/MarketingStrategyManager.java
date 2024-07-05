@@ -31,10 +31,10 @@ public class MarketingStrategyManager {
 
     public void updateStrategy(MarketingStrategy updatedStrategy) {
     	//your code goes here
-        for(MarketingStrategy strategy : strategies) {
-            if(strategy.getName().equals(updatedStrategy.getName())){
-                strategy = updatedStrategy;
-                break;
+        for (int i = 0; i < strategies.size(); i++) {
+            if (strategies.get(i).getName().equals(updatedStrategy.getName())) {
+                strategies.set(i, updatedStrategy);
+                return;
             }
         }
 
