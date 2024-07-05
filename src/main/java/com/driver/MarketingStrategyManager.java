@@ -13,22 +13,45 @@ public class MarketingStrategyManager {
 
     public void createStrategy(MarketingStrategy strategy) {
     	//your code goes here
+        strategies.add(strategy);
     }
 
     public MarketingStrategy getStrategyByName(String name) {
     	//your code goes here
-        return strategies.stream()
-                .filter(strategy -> strategy.getName().equals(name))
-                .findFirst()
-                .orElse(null);
+
+        for(MarketingStrategy strategy : strategies) {
+            if(strategy.getName().equals(name)){
+                return strategy;
+
+            }
+        }
+
+        return null;
     }
 
     public void updateStrategy(MarketingStrategy updatedStrategy) {
     	//your code goes here
+        for(MarketingStrategy strategy : strategies) {
+            if(strategy.getName().equals(updatedStrategy.getName())){
+                strategy = updatedStrategy;
+                break;
+            }
+        }
+
+
     }
 
     public void deleteStrategy(String name) {
     	//your code goes here
+        MarketingStrategy ans = null;
+        for(MarketingStrategy strategy : strategies) {
+            if(strategy.getName().equals(name)){
+                ans = strategy;
+               break;
+            }
+        }
+        strategies.remove(ans);
+
     }
 
     public List<MarketingStrategy> getStrategiesInBudgetRange(double minBudget, double maxBudget) {
@@ -40,6 +63,7 @@ public class MarketingStrategyManager {
 
     public List<MarketingStrategy> getAllStrategies() {
     	//your code goes here
+
         return new ArrayList<>(strategies);
     }
 }

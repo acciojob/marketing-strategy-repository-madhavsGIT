@@ -19,6 +19,7 @@ public class MarketingStrategy {
 
     public String getName() {
     	//your code goes here
+
         return name;
     }
 
